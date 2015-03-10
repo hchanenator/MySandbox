@@ -19,7 +19,7 @@ import javax.mail.internet.MimeMessage;
  * @author herb
  *
  */
-public class SimpleSMTPTest {
+public class ReallySimpleSMTPSandbox {
 
 	/**
 	 * @param args

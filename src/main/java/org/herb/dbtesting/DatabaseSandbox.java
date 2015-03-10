@@ -11,7 +11,7 @@ import org.hibernate.Session;
  * @author herb
  *
  */
-public class App {
+public class DatabaseSandbox {
 	 public static void main( String[] args )
 	    {
 	    	Session session = HibernateUtil.createSessionFactory().openSession();

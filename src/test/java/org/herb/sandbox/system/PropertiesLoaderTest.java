@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.herb.sandbox.system.PICSProperties;
-import org.herb.sandbox.system.logging.MyApp;
+import org.herb.sandbox.system.logging.LogConfigurationSandbox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +18,7 @@ import junit.framework.TestCase;
  * @author herb
  *
  */
-public class TestLoadProperties extends TestCase {
+public class PropertiesLoaderTest extends TestCase {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
@@ -39,7 +39,7 @@ public class TestLoadProperties extends TestCase {
 	public void testLoadPropertiesAsResource() {
 		String propertiesFile = "some.properties";
 		String someKey = "base.dir";
-//		ClassLoader cl = MyApp.class.getClassLoader();
+//		ClassLoader cl = LogConfigurationSandbox.class.getClassLoader();
 		PICSProperties props = new PICSProperties();
 		try {
 //			props.load(cl.getResourceAsStream(propertiesFile));

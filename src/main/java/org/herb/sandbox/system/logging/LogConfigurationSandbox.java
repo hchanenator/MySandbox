@@ -15,9 +15,9 @@ import org.apache.log4j.PropertyConfigurator;
  * @author herb
  * 
  */
-public class MyApp {
+public class LogConfigurationSandbox {
 
-	private final static Logger log = Logger.getLogger(MyApp.class);
+	private final static Logger log = Logger.getLogger(LogConfigurationSandbox.class);
 
 	/**
 	 * @param args
@@ -26,7 +26,7 @@ public class MyApp {
 	 */
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
-		ClassLoader cl = MyApp.class.getClassLoader();
+		ClassLoader cl = LogConfigurationSandbox.class.getClassLoader();
 		Properties log4j = new Properties();
 		log4j.load(cl.getResourceAsStream("log4j.properties"));
 

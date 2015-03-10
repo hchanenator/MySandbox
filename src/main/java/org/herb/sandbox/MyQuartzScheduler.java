@@ -20,13 +20,13 @@ import org.slf4j.LoggerFactory;
  * @author herb
  *
  */
-public class QuartzTest {
+public class MyQuartzScheduler {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Logger logger = LoggerFactory.getLogger(QuartzTest.class);
+		Logger logger = LoggerFactory.getLogger(MyQuartzScheduler.class);
 		
 		try {
 			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();

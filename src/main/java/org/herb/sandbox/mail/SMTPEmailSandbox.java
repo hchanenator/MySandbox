@@ -26,13 +26,13 @@ import org.slf4j.LoggerFactory;
  * @author herb
  * 
  */
-public class SMTPEmailTest {
+public class SMTPEmailSandbox {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 //	private final Logger logger = Logger.getLogger(this.getClass());
 
 	PICSProperties mailProps;
 
-	public SMTPEmailTest(Properties mailProps) throws ClassCastException {
+	public SMTPEmailSandbox(Properties mailProps) throws ClassCastException {
 		this.mailProps = (PICSProperties) mailProps;
 	}
 

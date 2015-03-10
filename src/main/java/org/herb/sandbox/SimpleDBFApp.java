@@ -6,7 +6,7 @@ package org.herb.sandbox;
 import java.io.IOException;
 
 import org.herb.sandbox.database.connection.DBFConnection;
-import org.herb.sandbox.mail.SMTPEmailTest;
+import org.herb.sandbox.mail.SMTPEmailSandbox;
 import org.herb.sandbox.system.PICSProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +17,14 @@ import org.slf4j.LoggerFactory;
  * @author herb
  * 
  */
-public class SimpleTest {
+public class SimpleDBFApp {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());  // use slf4j
-//	private Logger logger = Logger.getLogger(SimpleTest.class);  // use log4j
+//	private Logger logger = Logger.getLogger(SimpleDBFApp.class);  // use log4j
 
 	private PICSProperties dbProps, mailProps;
 	private DBFConnection conn;
 
-	public SimpleTest() {
+	public SimpleDBFApp() {
 		try {
 			dbProps = new PICSProperties();
 			dbProps.loadAsResource("database.properties");
@@ -51,7 +51,7 @@ public class SimpleTest {
 //		final String sql = "select reccount() from livedata.todonote";
 		final String sql = "select TNTNKEY, TNBRDCSTNT from livedata.todonote where tntdkey = 'TD00022148'";
 
-		SimpleTest me = new SimpleTest();
+		SimpleDBFApp me = new SimpleDBFApp();
 		me.connect();
 		me.conn.runCountQuery(sql);
 //		me.mailToMe();
@@ -62,7 +62,7 @@ public class SimpleTest {
 	}
 	
 	private void mailToMe()  {
-		SMTPEmailTest test = new SMTPEmailTest(mailProps);
+		SMTPEmailSandbox test = new SMTPEmailSandbox(mailProps);
 		
 		StringBuilder text = new StringBuilder();
 		text.append("Hello world!<br>");

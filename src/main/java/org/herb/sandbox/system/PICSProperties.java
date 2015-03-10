@@ -22,7 +22,7 @@ public class PICSProperties extends Properties {
 	private static final long serialVersionUID = -722518638866593973L;
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-//	private Logger logger = Logger.getLogger(SimpleTest.class);  // use log4j
+//	private Logger logger = Logger.getLogger(SimpleDBFApp.class);  // use log4j
 	
 	public PICSProperties() {}
 	
