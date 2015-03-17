@@ -37,7 +37,9 @@
           <configuration>
             <transformers>
               <transformer>
-                <mainClass>org.sonatype.haven.HavenCli</mainClass>
+                <manifestEntries>
+                  <Main-Class />
+                </manifestEntries>
               </transformer>
             </transformers>
           </configuration>

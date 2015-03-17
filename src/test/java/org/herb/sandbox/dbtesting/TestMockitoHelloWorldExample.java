@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  * @author herb
  *
  */
-public class MockitoHelloWorldExampleTest {
+public class TestMockitoHelloWorldExample {
 
 	@Test
 	public void fooGreets() {
