@@ -33,7 +33,6 @@ public class PropertyChangeListenerExample {
 
 		            guiPanel.addPropertyChangeListener(MtGuiPanel.PRESS_ME_ACTION, new PropertyChangeListener() {
 
-		               @Override
 		               public void propertyChange(PropertyChangeEvent evt) {
 		                  nonGui.buttonPressed();
 		               }
@@ -66,7 +65,6 @@ class MtNonGui {
 	         putValue(MNEMONIC_KEY, mnemonic);
 	      }
 
-	      @Override
 	      public void actionPerformed(ActionEvent e) {
 	         MtGuiPanel.this.firePropertyChange(PRESS_ME_ACTION, false, true);
 	      }
