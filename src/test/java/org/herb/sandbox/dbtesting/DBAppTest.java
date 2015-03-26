@@ -63,8 +63,8 @@ public class DBAppTest extends TestCase {
 		emp2.setFirstName("Nicole");
 		emp2.setLastName("Chan");
 		
-		session.save(emp2);
-		trx.commit();
+//		session.save(emp2);
+//		trx.commit();
 		session.close();
 
 	}
