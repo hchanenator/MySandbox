@@ -7,10 +7,6 @@
 	<name>sandbox</name>
 	<description>Used for Proof of Concepts</description>
 
-	<properties>
-		<!-- Skip artifact deployment -->
-		<maven.deploy.skip>true</maven.deploy.skip>
-	</properties>
 
 	<dependencies>
 		<dependency>
@@ -23,23 +19,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.5.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.182</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.6.Final</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.sun.mail</groupId>
@@ -62,19 +42,9 @@
 			<version>4.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
-		</dependency>
-		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>3.3</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.10</version>
 		</dependency>
 		<dependency>
 			<groupId>net.lingala.zip4j</groupId>
@@ -82,52 +52,31 @@
 			<version>1.3.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>1.9.5</version>
-		</dependency>
-		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.8.8</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
-			<version>2.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.10</version>
 		</dependency>
 	</dependencies>
 
 
 	<build>
-		<finalName>mysandbox-${project.version}</finalName>
 		<plugins>
 			<plugin>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.3</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<inherited>false</inherited>
-						<configuration>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<configuration>
-						<transformers>
-							<transformer
-								implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-								<manifestEntries>
-									<Main-Class></Main-Class>
-								</manifestEntries>
-							</transformer>
-						</transformers>
-					</configuration>
-				</configuration>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 		<testResources>
@@ -143,4 +92,9 @@
 			</testResource>
 		</testResources>
 	</build>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.1.8.RELEASE</version>
+	</parent>
 </project>

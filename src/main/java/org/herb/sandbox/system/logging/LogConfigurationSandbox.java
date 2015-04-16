@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.log4j.FileAppender;
+//import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -35,8 +35,8 @@ public class LogConfigurationSandbox {
 
 		log.info("Entering application.");
 		
-		FileAppender appender = (FileAppender)Logger.getRootLogger().getAppender("fileAppender");
-		System.out.println(appender.getFile());
+//		FileAppender appender = (FileAppender)Logger.getRootLogger().getAppender("fileAppender");
+//		System.out.println(appender.getFile());
 		log.info("Exiting application.");
 	}
 }
