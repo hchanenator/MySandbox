@@ -5,9 +5,10 @@
 <hibernate-configuration>
 	<session-factory>
 
-		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/test</property>
-		<property name="connection.username">herb</property>
-		<property name="connection.password">herb</property>
+		<!-- <property name="connection.url">jdbc:mysql://127.0.0.1:3306/test</property> -->
+		<property name="connection.url">jdbc:mysql://10.0.0.25:3306/test</property>
+		<property name="connection.username">hchan</property>
+		<property name="connection.password">hchan</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
@@ -19,7 +20,7 @@
 		<property name="connection.pool_size">1</property>
 		<property name="current_session_context_class">thread</property>
 
-		<mapping class="org.herb.dbtesting.entity.Employee"/>
+		<mapping class="org.herb.dbtesting.domain.Employee"/>
 
 	</session-factory>
 </hibernate-configuration>

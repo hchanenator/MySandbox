@@ -14,7 +14,7 @@ import org.hibernate.Session;
 public class DatabaseSandbox {
 	 public static void main( String[] args )
 	    {
-	    	Session session = HibernateUtil.createSessionFactory().openSession();
+	    	Session session = HibernateUtil.createSessionFactory("hibernate.cfg.xml").openSession();
 	    	System.out.println(session.isConnected() ? "Yes, we're connected!" : "Nope, we're not connected...");
 	    	session.close();
 	    }

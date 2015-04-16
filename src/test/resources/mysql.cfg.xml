@@ -19,7 +19,7 @@
 		<property name="connection.pool_size">1</property>
 		<property name="current_session_context_class">thread</property>
 
-		<mapping class="org.herb.dbtesting.entity.Employee"/>
+		<mapping class="org.herb.dbtesting.domain.Employee"/>
 
 	</session-factory>
 </hibernate-configuration>

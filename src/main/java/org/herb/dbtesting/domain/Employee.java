@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.herb.dbtesting.entity;
+package org.herb.dbtesting.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -109,6 +109,10 @@ public class Employee {
 		} else if (!lastName.equals(other.lastName))
 			return false;
 		return true;
+	}
+	
+	public String toString() {
+		return String.format("Employee [id=%d,  firstName='%s', lastName='%s']", empId, firstName, lastName);
 	}
 }
 	

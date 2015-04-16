@@ -2,19 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="sandbox by groups" duration-ms="23" started-at="2015-03-18T17:47:04Z" finished-at="2015-03-18T17:47:04Z">
+  <suite name="Default suite" duration-ms="112" started-at="2015-04-06T19:41:44Z" finished-at="2015-04-06T19:41:44Z">
     <groups>
-      <group name="fast">
-        <method signature="SimpleTest.aFastTest()[pri:0, instance:org.herb.sandbox.system.SimpleTest@233c0b17]" name="aFastTest" class="org.herb.sandbox.system.SimpleTest"/>
-      </group> <!-- fast -->
     </groups>
-    <test name="GRP-fast" duration-ms="23" started-at="2015-03-18T17:47:04Z" finished-at="2015-03-18T17:47:04Z">
-      <class name="org.herb.sandbox.system.SimpleTest">
-        <test-method status="PASS" signature="aFastTest()[pri:0, instance:org.herb.sandbox.system.SimpleTest@233c0b17]" name="aFastTest" duration-ms="13" started-at="2015-03-18T13:47:04Z" finished-at="2015-03-18T13:47:04Z">
+    <test name="Default test" duration-ms="112" started-at="2015-04-06T19:41:44Z" finished-at="2015-04-06T19:41:44Z">
+      <class name="org.herb.dbtesting.FooTest">
+        <test-method status="PASS" signature="greet()[pri:0, instance:org.herb.dbtesting.FooTest@71f2a7d5]" name="greet" duration-ms="60" started-at="2015-04-06T15:41:44Z" finished-at="2015-04-06T15:41:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- aFastTest -->
-      </class> <!-- org.herb.sandbox.system.SimpleTest -->
-    </test> <!-- GRP-fast -->
-  </suite> <!-- sandbox by groups -->
+        </test-method> <!-- greet -->
+      </class> <!-- org.herb.dbtesting.FooTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
