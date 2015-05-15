@@ -3,7 +3,7 @@ package org.herb.sandbox.dbtesting;
 
 import java.util.List;
 
-import org.herb.dbtesting.entity.Employee;
+import org.herb.dbtesting.domain.Employee;
 import org.herb.dbtesting.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -38,34 +38,66 @@ public class DBAppTest extends TestCase {
 		return new TestSuite(DBAppTest.class);
 	}
 
-	/**
-	 * Rigourous Test :-)
-	 */
 	public void testApp() { 
-		// assertTrue( true ); 
-		Session session = HibernateUtil.getSessionFactory().openSession(); 
+		Session session = HibernateUtil.createSessionFactory("hsql.cfg.xml").openSession();
 		assertNotNull("HibernateUtil did not return a valid session", session);
 		session.close();
 		
 	}
 
 	public void testWriteRecord() {
-		Session session = HibernateUtil.getSessionFactory().openSession();
+//		Session session = HibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.createSessionFactory("hsql.cfg.xml").openSession();
 		Transaction trx = session.beginTransaction();
 		// String hql = "from Employee e where e.empId = :employeeID";
-		String hql = "from Employee e where e.empId = 1";
-		List<?> results = session.createQuery(hql).list();
-		Employee emp = (Employee) results.get(0);
-		log.debug(emp.getLastName());
-		assertEquals("Herb", emp.getFirstName());
+		
+		Employee emp1 = new Employee();
+		emp1.setFirstName("Herb");
+		emp1.setLastName("Chan");
+		session.save(emp1);
 		
 		Employee emp2 = new Employee();
 		emp2.setFirstName("Nicole");
 		emp2.setLastName("Chan");
 		
-//		session.save(emp2);
-//		trx.commit();
+		session.save(emp2);	
+		
+		
+		
+		String hql = "from Employee e where e.empId = 1";
+		List<?> results = session.createQuery(hql).list();
+		Employee emp = (Employee) results.get(0);
+		log.debug(emp.getLastName());
+		assertEquals("Mick", emp.getFirstName());
+		
+		String hql2 = "from Employee e";
+		results = session.createQuery(hql2).list();
+		
+		for (Object o: results) {
+			System.out.println(((Employee)o).toString());
+		}
+		
+		trx.commit();
 		session.close();
 
 	}
+	
+	public void testReadRecords() {
+		Session session = HibernateUtil.createSessionFactory("hsql.cfg.xml").openSession();
+		String hql = "from Employee e where e.empId = 1";
+		List<?> results = session.createQuery(hql).list();
+		Employee emp = (Employee) results.get(0);
+		log.debug(emp.getLastName());
+		assertEquals("Mick", emp.getFirstName());
+		
+		String hql2 = "from Employee e";
+		results = session.createQuery(hql2).list();
+		for (Object o: results) {
+			System.out.println(((Employee)o).toString());
+		}
+		session.close();
+
+	}
+	
+	
 }

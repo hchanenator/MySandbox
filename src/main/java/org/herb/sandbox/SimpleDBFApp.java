@@ -46,7 +46,7 @@ public class SimpleDBFApp {
 	 */
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		final String altDBURUL = "jdbc:dbf:/M:/Prodinv/SuprPakr";
+//		final String altDBURUL = "jdbc:dbf:/M:/Prodinv/SuprPakr";
 //		final String sql = "select count(*) from todo";
 //		final String sql = "select reccount() from livedata.todonote";
 		final String sql = "select TNTNKEY, TNBRDCSTNT from livedata.todonote where tntdkey = 'TD00022148'";

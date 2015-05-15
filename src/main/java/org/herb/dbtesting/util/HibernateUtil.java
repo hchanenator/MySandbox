@@ -13,7 +13,7 @@ import org.hibernate.cfg.Configuration;
  *
  */
 public class HibernateUtil {
-	private static final SessionFactory sessionFactory = buildSessionFactory();
+//	private static final SessionFactory sessionFactory = buildSessionFactory();
 
 	private static SessionFactory mySessionFactory;
 
@@ -28,18 +28,18 @@ public class HibernateUtil {
 		}
 	}
 
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
+//	public static SessionFactory getSessionFactory() {
+//		return sessionFactory;
+//	}
 
-	public static void shutdown() {
-		// Close caches and connection pools
-		getSessionFactory().close();
-	}
+//	public static void shutdown() {
+//		// Close caches and connection pools
+//		getSessionFactory().close();
+//	}
 	
-	public static SessionFactory createSessionFactory() {
+	public static SessionFactory createSessionFactory(String configFile) {
 		Configuration configuration = new Configuration();
-		configuration.configure("mysql.cfg.xml");
+		configuration.configure(configFile);
 		StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 		mySessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		return mySessionFactory;
