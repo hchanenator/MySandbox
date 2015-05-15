@@ -34,7 +34,7 @@ public class SimpleSwingSandbox {
 				btnUpdateThis.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						try {
-							Process process = Runtime.getRuntime().exec("");
+							Process process = Runtime.getRuntime().exec("echo Hello Herb!");
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
