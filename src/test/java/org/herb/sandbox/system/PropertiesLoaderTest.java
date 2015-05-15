@@ -44,7 +44,8 @@ public class PropertiesLoaderTest extends TestCase {
 		try {
 //			props.load(cl.getResourceAsStream(propertiesFile));
 //			props.load(new FileReader(propertiesFile));
-			props.loadAsFileDirectly(propertiesFile);
+//			props.loadAsFileDirectly(propertiesFile);
+			props.loadAsResource(propertiesFile);
 			assertEquals("/temp", props.getProperty(someKey));
 		} catch (IOException e) {
 			log.info("Problem trying to load " + propertiesFile);

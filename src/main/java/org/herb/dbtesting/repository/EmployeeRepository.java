@@ -16,8 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	
-	List<Employee> findByEmpId(int empId);
-	
-	Employee findEmployee(int empId);
+	List<Employee> findAll();
+	Employee findByEmpId(int empId);
 
 }

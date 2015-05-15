@@ -68,7 +68,7 @@ public class DBAppTest extends TestCase {
 		List<?> results = session.createQuery(hql).list();
 		Employee emp = (Employee) results.get(0);
 		log.debug(emp.getLastName());
-		assertEquals("Herb", emp.getFirstName());
+		assertEquals("Mick", emp.getFirstName());
 		
 		String hql2 = "from Employee e";
 		results = session.createQuery(hql2).list();
@@ -88,7 +88,7 @@ public class DBAppTest extends TestCase {
 		List<?> results = session.createQuery(hql).list();
 		Employee emp = (Employee) results.get(0);
 		log.debug(emp.getLastName());
-		assertEquals("Herb", emp.getFirstName());
+		assertEquals("Mick", emp.getFirstName());
 		
 		String hql2 = "from Employee e";
 		results = session.createQuery(hql2).list();
