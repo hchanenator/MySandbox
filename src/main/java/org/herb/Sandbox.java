@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 //@Configuration
 //@EnableAutoConfiguration
 //@ComponentScan(basePackages="org.herb.dbtesting")
-@SpringBootApplication
+//@SpringBootApplication
 public class Sandbox implements CommandLineRunner {
 	
 	@Autowired
