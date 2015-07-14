@@ -32,8 +32,11 @@
 package org.herb.ui.pubsub;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 /* Used by InternalFrameDemo.java. */
 public class MyInternalFrame extends JInternalFrame {
@@ -46,6 +49,7 @@ public class MyInternalFrame extends JInternalFrame {
     static final int xOffset = 30, yOffset = 30;
     
     private MyToolBar myToolbar;
+    private JTextField textField;
 
     public MyInternalFrame() {
         super("Document #" + (++openFrameCount), 
@@ -57,14 +61,27 @@ public class MyInternalFrame extends JInternalFrame {
         //...Create the GUI and put it in the window...
 
         //...Then set the window size or call pack...
-        setSize(300,300);
+        setSize(405,300);
 
         //Set the window's location.
         setLocation(xOffset*openFrameCount, yOffset*openFrameCount);
+        getContentPane().setLayout(null);
         
         myToolbar = new MyToolBar();
+        myToolbar.setBounds(0, 0, 389, 23);
         myToolbar.setInternalFrame(this);
-        add(myToolbar, BorderLayout.PAGE_START);
+        getContentPane().add(myToolbar);
+        
+        textField = new JTextField();
+        textField.setColumns(10);
+        textField.setName("WCFIELD");
+        textField.setBounds(87, 34, 86, 20);
+        textField.setEditable(false);
+        getContentPane().add(textField);
+        
+        JLabel lblFirstName = new JLabel("First name");
+        lblFirstName.setBounds(10, 41, 64, 14);
+        getContentPane().add(lblFirstName);
         
     }
 }
