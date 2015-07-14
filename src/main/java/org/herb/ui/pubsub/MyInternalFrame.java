@@ -31,6 +31,8 @@
 
 package org.herb.ui.pubsub;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JInternalFrame;
 
 /* Used by InternalFrameDemo.java. */
@@ -42,6 +44,8 @@ public class MyInternalFrame extends JInternalFrame {
 	
 	static int openFrameCount = 0;
     static final int xOffset = 30, yOffset = 30;
+    
+    private MyToolBar myToolbar;
 
     public MyInternalFrame() {
         super("Document #" + (++openFrameCount), 
@@ -57,5 +61,10 @@ public class MyInternalFrame extends JInternalFrame {
 
         //Set the window's location.
         setLocation(xOffset*openFrameCount, yOffset*openFrameCount);
+        
+        myToolbar = new MyToolBar();
+        myToolbar.setInternalFrame(this);
+        add(myToolbar, BorderLayout.PAGE_START);
+        
     }
 }

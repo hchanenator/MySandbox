@@ -31,7 +31,7 @@ public class MyFrame extends JFrame {
 
 	private JPanel panel;
 	private JDesktopPane desktop;
-	private MyToolBar toolbar;
+//	private MyToolBar toolbar;
 	private MyMenuBar menubar;
 	
 	public MyFrame() {
@@ -49,11 +49,11 @@ public class MyFrame extends JFrame {
 		panel.setLayout(new BorderLayout(0, 0));
 		setContentPane(panel);
 		
-		toolbar = createToolBar();
+//		toolbar = createToolBar();
 		
-		panel.add(toolbar, BorderLayout.NORTH);
+//		panel.add(toolbar, BorderLayout.NORTH);
 		desktop = createDesktopPane();
-		toolbar.setDesktop(desktop);
+//		toolbar.setDesktop(desktop);
 		menubar.setDesktop(desktop);
 		
 		panel.add(desktop, BorderLayout.CENTER);		

@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
@@ -22,6 +24,8 @@ public class MyToolBar extends JToolBar {
 	private JButton addButton;
 	private JLabel label;
 	private JDesktopPane desktop;
+	private JInternalFrame internalFrame;
+	private JComponent component;
 	
 	public MyToolBar() {
 		super();
@@ -41,7 +45,7 @@ public class MyToolBar extends JToolBar {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				label.setText(String.format("%d", desktop.getComponentCount()));
+				label.setText(String.format("%d", component.getComponentCount()));
 			}
 		});
 		return button;
@@ -56,5 +60,11 @@ public class MyToolBar extends JToolBar {
 
 	public void setDesktop(JDesktopPane desktop) {
 		this.desktop = desktop;
+		component = desktop;
+	}
+	
+	public void setInternalFrame(JInternalFrame internalFrame) {
+		this.internalFrame = internalFrame;
+		component = internalFrame;
 	}
 }
