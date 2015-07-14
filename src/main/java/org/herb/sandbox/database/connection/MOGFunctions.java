@@ -16,7 +16,7 @@ public class MOGFunctions implements ExtendedFunctionInterface {
 
 	/**
 	 * Used to verify whether functionName is supported, and has a correct
-	 * prarameter count.
+	 * parameter count.
 	 * 
 	 * @param functionName
 	 *            the name of function
