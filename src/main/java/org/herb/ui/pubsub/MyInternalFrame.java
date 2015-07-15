@@ -47,8 +47,6 @@ public class MyInternalFrame extends JInternalFrame {
 	
 	static int openFrameCount = 0;
     static final int xOffset = 30, yOffset = 30;
-    
-    private MyToolBar myToolbar;
     private JTextField textField;
 
     public MyInternalFrame() {
@@ -67,11 +65,6 @@ public class MyInternalFrame extends JInternalFrame {
         setLocation(xOffset*openFrameCount, yOffset*openFrameCount);
         getContentPane().setLayout(null);
         
-        myToolbar = new MyToolBar();
-        myToolbar.setBounds(0, 0, 389, 23);
-        myToolbar.setInternalFrame(this);
-        getContentPane().add(myToolbar);
-        
         textField = new JTextField();
         textField.setColumns(10);
         textField.setName("WCFIELD");
@@ -82,6 +75,11 @@ public class MyInternalFrame extends JInternalFrame {
         JLabel lblFirstName = new JLabel("First name");
         lblFirstName.setBounds(10, 41, 64, 14);
         getContentPane().add(lblFirstName);
+        
+        MyToolBar myToolBar = new MyToolBar();
+        myToolBar.setBounds(0, 0, 239, 23);
+        myToolBar.setInternalFrame(this);
+        getContentPane().add(myToolBar);
         
     }
 }

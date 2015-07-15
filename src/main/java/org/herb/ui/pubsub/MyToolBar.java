@@ -23,58 +23,40 @@ import javax.swing.Box;
  */
 public class MyToolBar extends JToolBar {
 	
-	
-	private JDesktopPane desktop;
 	private JInternalFrame internalFrame;
-	private JComponent component;
 	
 	public MyToolBar() {
 		super();
+		setRollover(true);
+		setBackground(new Color(51, 153, 255));
 		setFloatable(false);
-		setBackground(new Color(19, 172, 214));
 		
 		JButton btnAdd = new JButton("Add");
-		add(btnAdd);
-		
-		JButton btnEdit = new JButton("Edit");
-		btnEdit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {				
-				
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Component[] components = internalFrame.getComponents();
+				for(Component c : components) {
+					System.out.println(c.toString());
+				}
 			}
 		});
+		add(btnAdd);
 		
-		Component horizontalStrut = Box.createHorizontalStrut(20);
-		add(horizontalStrut);
+		JLabel label = new JLabel(" ");
+		add(label);
+		
+		JButton btnEdit = new JButton("Edit");
 		add(btnEdit);
 		
-		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
-		add(horizontalStrut_1);
+		JLabel label_1 = new JLabel(" ");
+		add(label_1);
 		
 		JButton btnDelete = new JButton("Delete");
 		add(btnDelete);
 		
-		Component horizontalStrut_2 = Box.createHorizontalStrut(20);
-		add(horizontalStrut_2);
-		
-		JButton btnSave = new JButton("Save");
-		add(btnSave);
-		
-		Component horizontalStrut_3 = Box.createHorizontalStrut(20);
-		add(horizontalStrut_3);
-		
-		JButton btnCancel = new JButton("Cancel");
-		add(btnCancel);
-		
-	}
-	
-
-	public void setDesktop(JDesktopPane desktop) {
-		this.desktop = desktop;
-		component = desktop;
 	}
 	
 	public void setInternalFrame(JInternalFrame internalFrame) {
 		this.internalFrame = internalFrame;
-		component = internalFrame;
 	}
 }
