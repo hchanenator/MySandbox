@@ -80,9 +80,5 @@ public class MyFrame extends JFrame {
 		desktopPane.setVisible(true);
 		return desktopPane;
 	}
-	
-	private MyToolBar createToolBar() {
-		return new MyToolBar();
-	}
 
 }

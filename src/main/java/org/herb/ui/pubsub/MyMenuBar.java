@@ -21,7 +21,7 @@ public class MyMenuBar extends JMenuBar {
 	private static final long serialVersionUID = -5445117686659070066L;
 	private JDesktopPane desktop;
 	private JMenu fileMenu;
-	private JMenuItem addFrame;
+	private JMenuItem newFrame;
 	
 	public MyMenuBar() {
 		super();
@@ -43,15 +43,15 @@ public class MyMenuBar extends JMenuBar {
 	
 	private JMenu createFileMenu() {
 		fileMenu = new JMenu("File");
-		addFrame = new JMenuItem("Add");
-		addFrame.addActionListener(new ActionListener() {
+		newFrame = new JMenuItem("New");
+		newFrame.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addFrame();
 			}
 		});
-		fileMenu.add(addFrame);
+		fileMenu.add(newFrame);
 		return fileMenu;		
 	}
 	

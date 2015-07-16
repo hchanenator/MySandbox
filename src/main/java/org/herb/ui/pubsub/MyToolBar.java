@@ -14,6 +14,9 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
+
+import org.herb.ui.framework.ToolbarState;
+
 import java.awt.Component;
 import javax.swing.Box;
 
@@ -23,10 +26,11 @@ import javax.swing.Box;
  */
 public class MyToolBar extends JToolBar {
 	
-	private JInternalFrame internalFrame;
+	private MyMediator med;
 	
-	public MyToolBar() {
+	public MyToolBar(final MyMediator med) {
 		super();
+		this.med = med;
 		setRollover(true);
 		setBackground(new Color(51, 153, 255));
 		setFloatable(false);
@@ -34,10 +38,7 @@ public class MyToolBar extends JToolBar {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Component[] components = internalFrame.getComponents();
-				for(Component c : components) {
-					System.out.println(c.toString());
-				}
+				med.updateMode(ToolbarState.ADD);
 			}
 		});
 		add(btnAdd);
@@ -46,17 +47,24 @@ public class MyToolBar extends JToolBar {
 		add(label);
 		
 		JButton btnEdit = new JButton("Edit");
+		btnEdit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				med.updateMode(ToolbarState.EDIT);
+			}
+		});
 		add(btnEdit);
 		
 		JLabel label_1 = new JLabel(" ");
 		add(label_1);
 		
-		JButton btnDelete = new JButton("Delete");
-		add(btnDelete);
+		JButton btnView = new JButton("View");
+		btnView.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				med.updateMode(ToolbarState.VIEW);
+			}
+		});
+		add(btnView);
 		
 	}
 	
-	public void setInternalFrame(JInternalFrame internalFrame) {
-		this.internalFrame = internalFrame;
-	}
 }

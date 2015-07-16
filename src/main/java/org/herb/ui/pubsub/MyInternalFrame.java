@@ -55,7 +55,7 @@ public class MyInternalFrame extends JInternalFrame {
 	
 	static int openFrameCount = 0;
     static final int xOffset = 30, yOffset = 30;
-    private JTextField textField;
+    private MyMediator myMediator;
 
     public MyInternalFrame() {
         super("Document #" + (++openFrameCount), 
@@ -65,6 +65,7 @@ public class MyInternalFrame extends JInternalFrame {
               true);//iconifiable
 
         //...Create the GUI and put it in the window...
+        myMediator = new MyMediatorImpl();
 
         //...Then set the window size or call pack...
         setSize(405,300);
@@ -73,9 +74,8 @@ public class MyInternalFrame extends JInternalFrame {
         setLocation(xOffset*openFrameCount, yOffset*openFrameCount);
         getContentPane().setLayout(null);
         
-        MyToolBar myToolBar = new MyToolBar();
+        MyToolBar myToolBar = new MyToolBar(myMediator);
         myToolBar.setBounds(0, 0, 239, 23);
-        myToolBar.setInternalFrame(this);
         getContentPane().add(myToolBar);
         
         final JPanel panel = new JPanel();
@@ -84,12 +84,13 @@ public class MyInternalFrame extends JInternalFrame {
         getContentPane().add(panel);
         panel.setLayout(null);
         
-        textField = new JTextField();
+        final JTextField textField = new JTextField();
         textField.setBounds(83, 20, 127, 20);
         panel.add(textField);
         textField.setColumns(10);
         textField.setName("WCFIELD");
         textField.setEditable(false);
+        myMediator.addComponent(textField);
         
         JLabel lblFirstName = new JLabel("First name");
         lblFirstName.setBounds(16, 23, 64, 14);
@@ -101,10 +102,13 @@ public class MyInternalFrame extends JInternalFrame {
 
         
         final JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        myMediator.addComponent(textArea);
         scrollPane.setViewportView(textArea);
         
         
         JButton btnComponents = new JButton("Components");
+        btnComponents.setEnabled(false);
         btnComponents.setBounds(108, 47, 133, 23);
         panel.add(btnComponents);
         btnComponents.addActionListener(new ActionListener() {
@@ -117,6 +121,7 @@ public class MyInternalFrame extends JInternalFrame {
         		textArea.setText(sb.toString());
         	}
         });
+        myMediator.addComponent(btnComponents);
         
         
     }
