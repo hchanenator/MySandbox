@@ -32,11 +32,19 @@
 package org.herb.ui.pubsub;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+import javax.swing.JScrollPane;
 
 /* Used by InternalFrameDemo.java. */
 public class MyInternalFrame extends JInternalFrame {
@@ -65,21 +73,51 @@ public class MyInternalFrame extends JInternalFrame {
         setLocation(xOffset*openFrameCount, yOffset*openFrameCount);
         getContentPane().setLayout(null);
         
-        textField = new JTextField();
-        textField.setColumns(10);
-        textField.setName("WCFIELD");
-        textField.setBounds(87, 34, 86, 20);
-        textField.setEditable(false);
-        getContentPane().add(textField);
-        
-        JLabel lblFirstName = new JLabel("First name");
-        lblFirstName.setBounds(10, 41, 64, 14);
-        getContentPane().add(lblFirstName);
-        
         MyToolBar myToolBar = new MyToolBar();
         myToolBar.setBounds(0, 0, 239, 23);
         myToolBar.setInternalFrame(this);
         getContentPane().add(myToolBar);
+        
+        final JPanel panel = new JPanel();
+        panel.setBorder(null);
+        panel.setBounds(10, 34, 367, 233);
+        getContentPane().add(panel);
+        panel.setLayout(null);
+        
+        textField = new JTextField();
+        textField.setBounds(83, 20, 127, 20);
+        panel.add(textField);
+        textField.setColumns(10);
+        textField.setName("WCFIELD");
+        textField.setEditable(false);
+        
+        JLabel lblFirstName = new JLabel("First name");
+        lblFirstName.setBounds(16, 23, 64, 14);
+        panel.add(lblFirstName);
+        
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(16, 81, 341, 141);
+        panel.add(scrollPane);
+
+        
+        final JTextArea textArea = new JTextArea();
+        scrollPane.setViewportView(textArea);
+        
+        
+        JButton btnComponents = new JButton("Components");
+        btnComponents.setBounds(108, 47, 133, 23);
+        panel.add(btnComponents);
+        btnComponents.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		StringBuilder sb = new StringBuilder();
+        		Component[] components = panel.getComponents();
+        		for (Component c : components) {
+        			sb.append(c.getClass().getSimpleName()).append("\n");
+        		}
+        		textArea.setText(sb.toString());
+        	}
+        });
+        
         
     }
 }
