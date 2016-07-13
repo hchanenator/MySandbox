@@ -44,8 +44,8 @@ public class SimpleGame {
 	
 	private void gameMaker() {
 		for(int i = 0; i < 5; i++) {
-			int hr = 5 + i;
-			timeSlots.add(new TimeSlot(60, "0" + hr + ":00", false));
+			int hr = 7 + i;
+			timeSlots.add(new TimeSlot(60, hr + ":00", false));
 		}
 	}
 	

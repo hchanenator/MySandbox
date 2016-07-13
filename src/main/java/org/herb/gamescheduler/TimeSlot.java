@@ -4,6 +4,7 @@
 package org.herb.gamescheduler;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * @author hchan
@@ -11,13 +12,16 @@ import java.time.LocalTime;
  */
 public class TimeSlot {
 
+	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+	
 	int duration;
-	LocalTime time;
+	String timeString;
 	boolean badTime = false;
+	
 	
 	public TimeSlot(int duration, String time, boolean badTime) {
 		this.duration = duration;
-		this.time = LocalTime.parse(time);
+		this.timeString = LocalTime.parse(time).format(formatter);
 		this.badTime = badTime;
 	}
 
@@ -38,15 +42,15 @@ public class TimeSlot {
 	/**
 	 * @return the time
 	 */
-	public LocalTime getTime() {
-		return time;
+	public String getTime() {
+		return timeString;
 	}
 
 	/**
 	 * @param time the time to set
 	 */
-	public void setTime(LocalTime time) {
-		this.time = time;
+	public void setTime(String time) {
+		this.timeString = time;
 	}
 
 	/**
@@ -68,7 +72,7 @@ public class TimeSlot {
 	 */
 	@Override
 	public String toString() {
-		return "TimeSlot [duration=" + duration + ", time=" + time + ", badTime=" + badTime + "]";
+		return "TimeSlot [duration=" + duration + ", time=" + timeString + ", badTime=" + badTime + "]";
 	}
 	
 	

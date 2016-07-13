@@ -27,7 +27,7 @@ public class GameScheduler {
 			System.out.println(simpleGame);
 			List<TimeSlot> timeSlots = simpleGame.getTimes();
 			for (TimeSlot timeSlot : timeSlots) {
-				System.out.println(timeSlot.time.toString());
+				System.out.println(timeSlot.timeString.toString());
 			}
 		}
 	}
